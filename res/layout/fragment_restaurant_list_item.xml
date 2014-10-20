@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.icsfood.icsfood.RestaurantListFragment"
+    android:orientation="vertical"
+    android:background="@color/green">
+
+
+    <ImageView
+        android:id="@+id/restaurant_list_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="210dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="6dp">
+
+        <TextView
+        	android:id="@+id/restaurant_list_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RatingBar
+        	android:id="@+id/restaurant_list_item_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+	    	android:stepSize="1"
+            style="@style/customRatingBar"
+            android:paddingTop="5dp" />
+    </LinearLayout>
+
+</LinearLayout>

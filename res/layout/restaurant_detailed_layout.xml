@@ -1,0 +1,436 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkblue">
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkblue"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/restaurant_detailed_info_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@color/blue"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:gravity="right"
+            android:text="菜系："
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/restaurant_detailed_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:gravity="left"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:gravity="right"
+            android:text="人均："
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/restaurant_detailed_spend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:gravity="left"
+            android:text="价位"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_address" />
+		<LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:orientation="vertical"
+	        android:layout_gravity="center_vertical"
+	        android:layout_marginLeft="10dp">
+	        <TextView
+	            android:id="@+id/restaurant_detailed_address"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@android:color/white" />
+	        <TextView
+	            android:id="@+id/restaurant_detailed_business_circle"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@android:color/white" />
+	        <TextView
+	            android:id="@+id/restaurant_detailed_landmark"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/restaurant_detailed_subways" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"/>
+    
+    <com.fax.utils.view.CardTextView 
+	    android:id="@+id/restaurant_detailed_preferential"
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue"/>
+	<com.fax.utils.view.CardTextView 
+	    android:id="@+id/restaurant_detailed_environment"
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue"/>
+	<com.fax.utils.view.CardTextView 
+	    android:id="@+id/restaurant_detailed_architecture"
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue"/>
+	<com.fax.utils.view.CardTextView 
+	    android:id="@+id/restaurant_detailed_atmosphere"
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp"
+        android:background="@color/blue"/>
+	<LinearLayout 
+        android:layout_width="match_parent"
+       	android:layout_height="wrap_content">
+		<TextView 
+	        android:id="@+id/restaurant_detailed_roommaxpeople_label"
+	        android:layout_width="wrap_content"
+	       	android:layout_height="wrap_content"
+	       	android:background="@null"
+	       	android:padding="7dp"
+	       	android:text="@string/roommaxpeople"
+	       	android:textColor="@android:color/white"/>
+	    <TextView 
+	        android:id="@+id/restaurant_detailed_roommaxpeople"
+	        android:layout_width="wrap_content"
+	       	android:layout_height="wrap_content"
+	       	android:background="@null"
+	       	android:padding="7dp"
+	       	android:textColor="@android:color/white"/>
+	</LinearLayout>
+	<TextView  
+        android:layout_width="match_parent"
+       	android:layout_height="wrap_content"
+       	android:background="@color/blue"
+       	android:layout_marginTop="3dp"
+       	android:text="@string/parking_information"
+       	android:padding="7dp"
+       	android:textSize="19sp"
+       	android:textColor="@android:color/white"/>
+	<TextView 
+        android:id="@+id/restaurant_detailed_parkinginfo"
+        android:layout_width="match_parent"
+       	android:layout_height="wrap_content"
+       	android:background="@null"
+       	android:padding="7dp"
+       	android:textColor="@android:color/white"/>
+	<LinearLayout 
+        android:layout_width="match_parent"
+       	android:layout_height="wrap_content"
+       	android:gravity="left">
+	    <TextView 
+          	android:layout_width="wrap_content"
+	       	android:layout_height="wrap_content"
+	       	android:text="@string/costs"
+	       	android:padding="7dp"
+	       	android:textSize="15sp"
+	       	android:textColor="@android:color/white"/>
+	    <TextView 
+	        android:id="@+id/restaurant_detailed_costs"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:padding="7dp"
+        	android:textSize="15sp"
+        	android:textColor="@android:color/white"/>
+	</LinearLayout>
+    <!-- LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_phone" />
+
+        <TextView
+            android:id="@+id/restaurant_detailed_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_time" />
+
+        <TextView
+            android:id="@+id/restaurant_detailed_business_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ICS_video"
+            android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1" >
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+            	android:background="#ddffffff"
+                android:minWidth="40dp"
+                android:button="@null"
+                android:clickable="false"
+                android:layout_gravity="center"
+                android:drawableBottom="@drawable/radiobutton_check"
+                android:drawableTop="@drawable/room_icon"
+                android:gravity="center"
+                android:text="@string/room"
+                android:textColor="@color/blue"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/restaurant_detailed_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textColor="@color/blue"
+                android:textSize="10sp" />
+        </FrameLayout>
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_wifi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/wifi_icon"
+            android:gravity="center"
+            android:text="@string/wifi"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_creditcard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/creditcard_icon"
+            android:gravity="center"
+            android:text="@string/creditcard"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_takeout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/takeout_icon"
+            android:gravity="center"
+            android:text="@string/takeout"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_waitingarea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/waitingarea_icon"
+            android:gravity="center"
+            android:text="@string/waitingarea"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_accessibility"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/accessibility_icon"
+            android:gravity="center"
+            android:text="@string/accessibility"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_babychair"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/babychair_icon"
+            android:gravity="center"
+            android:text="@string/babychair"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/restaurant_detailed_parkinglot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:layout_margin="2dp"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/car"
+            android:gravity="center"
+            android:text="@string/parkinglot"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:layout_margin="2dp"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/ic_launcher"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#ddffffff"
+            android:layout_margin="2dp"
+            android:button="@null"
+            android:clickable="false"
+            android:drawableBottom="@drawable/radiobutton_check"
+            android:drawableTop="@drawable/ic_launcher"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+    </LinearLayout>
+	<LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/remarks"
+        	android:textSize="20sp"
+        	android:textColor="@android:color/white"
+        	android:padding="7dp"/>
+	    <TextView 
+	        android:id="@+id/restaurant_detailed_remark"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text=""
+        	android:textColor="@android:color/white"
+        	android:padding="7dp"/>
+	</LinearLayout>
+</LinearLayout>
+</ScrollView>

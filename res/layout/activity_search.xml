@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:minHeight="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/topbar_left_btn"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:drawableLeft="@drawable/topbar_ic_menu"
+            android:gravity="center"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:drawablePadding="6dp"
+            android:minWidth="60dp"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/common_btn_in_black"/>
+        <EditText
+            android:id="@android:id/edit"
+            android:hint="@string/please_input_words"
+            android:drawableLeft="@drawable/common_ic_search"
+            android:drawablePadding="6dp"
+            android:background="@drawable/common_input_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+
+        <Button
+            android:id="@+id/topbar_right_btn"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="@android:string/cancel"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:minWidth="60dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:drawablePadding="6dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/common_btn_in_black"/>
+    </LinearLayout>
+	<com.fax.utils.view.list.ObjectXListView 
+	    android:id="@android:id/list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+	    
+	</com.fax.utils.view.list.ObjectXListView>
+</LinearLayout>

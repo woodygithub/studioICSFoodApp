@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:round="http://schemas.android.com/apk/res/com.org.icsfoodapp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:gravity="center"
+    android:orientation="vertical" >
+    <com.fax.utils.view.RoundAngleImageView
+		android:id="@+id/setting_avator"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_margin="20dp"
+		android:src="@drawable/menu_ic_person"
+		round:roundWidth="50dp"
+		round:roundHeight="50dp"
+		round:borderWidth="0dp"
+		android:scaleType="centerCrop"
+		round:borderColor="@android:color/transparent"/>
+
+	<RadioGroup
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="20dp"
+	    android:gravity="center" >
+
+		<RadioButton
+		    android:id="@+id/radioButton1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:checked="true"
+		    android:textColor="@android:color/white"
+		    android:text="中文" />
+
+		<RadioButton
+		    android:id="@+id/radioButton2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:text="English"
+		    android:textColor="@android:color/white" />
+		
+	</RadioGroup>
+
+	<Button
+	    android:id="@+id/submit"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="30dp"
+	    android:background="@drawable/common_btn_white"
+	    android:text="@string/submit" />
+
+</LinearLayout>

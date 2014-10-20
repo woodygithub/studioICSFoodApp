@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">享宴</string>
+    <string name="exit_toast">再按一次退出!</string>
+    <string name="store">添加收藏</string>
+    <string name="alreadystore">已收藏</string>
+    <string name="share">分享</string>
+    <string name="custom_menu">用户菜单</string>
+    
+    <string name="recommend">评分</string>
+    <string name="more">更多</string>
+	<string name="comment">评论</string>
+	<string name="expert">专家</string>
+	<string name="customer">用户</string>
+	<string name="expert_comment">专家评论</string>
+	<string name="baseinfo">基本信息</string>
+	<string name="enter_code">请输入评论</string>
+	<string name="ICS_video">ICS 视频</string>
+
+    <string name="login">登录</string>
+    <string name="login_not_a_member">还不是会员？</string>
+
+    <string name="login_sign_up">注册</string>
+    <string name="username_email">用户名/电子邮件</string>
+    <string name="email">电子邮件</string>
+    <string name="nickname">昵称</string>
+    <string name="sure_to_logout">确定注销？</string>
+    <string name="please_login">请登录</string>
+    <string name="please_input_comment">请输入评论</string>
+    
+    <string name="Commons.Prompt">提示</string>
+    
+    <string name="reg_upload_photos">上传头像</string>
+    
+    <string name="submit">提交</string>
+    
+    <string name="mobilephoto">电话</string>
+    
+    <string name="password">密码</string>
+    
+	<string-array name="get_pic_mode">
+	    <item >拍照</item>
+	    <item >选择本地图片</item>
+	</string-array>
+	
+    <string name="preview">预览</string>
+    <string name="please_choose">请选择</string>
+    <string name="please_upload_photo">请上传头像</string>
+    <string name="please_input_email">请输入电子邮件</string>
+    <string name="please_input_valid_email">请输入有效邮箱</string>
+    <string name="please_input_nickname">请输入昵称</string>
+    <string name="please_input_mobile">请输入电话</string>
+    <string name="please_input_valid_mobile">请输入有效电话</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="please_input_words">请输入关键词</string>
+    <string name="please_input_emailpassword">请输入邮箱和密码</string>
+    <string name="restaurant">餐厅</string>
+    <string name="menu">菜单</string>
+    <string name="private_menu">私房菜单</string>
+    <string name="activity">活动</string>
+    <string name="star">美食家</string>
+    <string name="setting">设置</string>
+    <string name="preferential_information">优惠信息</string>
+    <string name="environment">环境</string>
+    <string name="architecture">建筑风格</string>
+    <string name="atmosphere">氛围</string>
+    <string name="remarks">摘要</string>
+    <string name="parking_information">停车服务信息</string>
+    <string name="costs">价格:</string>
+    <string name="environment_gallery">环境图库</string>
+    <string name="menu_gallery">菜单图库</string>
+	<string name="video">视频</string>
+	<string name="buy_now">立即购买</string>
+	<string name="price">价格:￥</string>
+	<string name="number">数量:</string>
+	<string name="total">总价:￥</string>
+	<string name="order_number">订单编号:</string>
+	<string name="my_order">我的订单</string>
+	<string name="my_stores">我的收藏</string>
+	<string name="order_no">订单号:</string>
+	<string name="order_time">订单时间:</string>
+	<string name="redeem">兑换码</string>
+	<string name="code">兑换码</string>
+	<string name="my_restaurant">我的餐厅</string>
+    <string name="my_menu">我的菜单</string>
+    <string name="my_activity">我的活动</string>
+    <string name="custom_order">用户订单</string>
+    <string name="pay_now">立即支付</string>
+    <string name="unavailable">未使用</string>
+    <string name="available">已使用</string>
+    <string name="not_pay">未支付</string>
+    <string name="room">包间</string>
+    <string name="wifi">wifi</string>
+    <string name="creditcard">信用卡</string>
+    <string name="takeout">外卖</string>
+    <string name="waitingarea">等候区</string>
+    <string name="accessibility">无障碍</string>
+    <string name="babychair">儿童座椅</string>
+    <string name="parkinglot">代客泊车</string>
+    <string name="roommaxpeople">包间最大人数:</string>
+    <string name="Not_Redeemed">未兑换</string>
+    <string name="Redeemed">已兑换</string>
+    <string name="order_success_text">购买成功,请点击进入订单详情页</string>
+</resources>

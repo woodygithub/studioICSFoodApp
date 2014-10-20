@@ -1,0 +1,62 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="FloatTheme" parent="AppTheme" >
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="MyTheme" >
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+	<style name="expertRatingBar" parent="@android:style/Widget.DeviceDefault.Light.RatingBar.Small">
+		<item name="android:progressDrawable">@drawable/ratingbar_expert_full</item>
+		<item name="android:minHeight">30px</item>
+  		<item name="android:maxHeight">20dip</item>
+	</style>
+	<style name="expertWhiteRatingBar" parent="@android:style/Widget.DeviceDefault.Light.RatingBar.Small">
+		<item name="android:progressDrawable">@drawable/ratingbar_expert_white</item>
+		<item name="android:minHeight">30px</item>
+  		<item name="android:maxHeight">20dip</item>
+	</style>
+	<style name="customRatingBar" parent="@android:style/Widget.DeviceDefault.Light.RatingBar.Small">
+		<item name="android:progressDrawable">@drawable/ratingbar_coustom_full</item>
+		<item name="android:minHeight">30px</item>
+  		<item name="android:maxHeight">20dip</item>
+	</style>
+	<style name="customBigRatingBar">
+		<item name="android:progressDrawable">@drawable/ratingbar_coustom_full</item>
+		<item name="android:minHeight">70px</item>
+		<item name="android:minWidth">70px</item>
+		<item name="android:maxWidth">70dip</item>
+  		<item name="android:maxHeight">70dip</item>
+	</style>
+	<style name="customWhiteRatingBar" parent="@android:style/Widget.DeviceDefault.Light.RatingBar.Small">
+		<item name="android:progressDrawable">@drawable/ratingbar_coustom_white</item>
+		<item name="android:minHeight">54px</item>
+  		<item name="android:maxHeight">30dip</item>
+	</style>
+	<style name="customBigWhiteRatingBar" parent="@android:style/Widget.DeviceDefault.Light.RatingBar.Small">
+		<item name="android:progressDrawable">@drawable/ratingbar_coustom_big</item>
+        <item name ="android:isIndicator">false</item>
+		<item name="android:minHeight">34dip</item>
+  		<item name="android:maxHeight">54dip</item>
+  		<item name="android:minWidth">34dip</item>
+  		<item name="android:maxWidth">54dip</item>
+	</style>
+</resources>

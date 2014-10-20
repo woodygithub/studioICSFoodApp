@@ -1,0 +1,135 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    android:orientation="vertical"
+    tools:context="com.icsfood.icsfood.MenuPageFragment">
+
+    <ImageView
+        android:id="@+id/restaurant_menu_page_bigimage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/restaurant_menu_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+	<com.org.icsfoodapp.views.HorizontalListView 
+	    android:id="@+id/restanrant_menu_smallgallery"
+	    android:layout_width="match_parent"
+	    android:layout_height="110dp" />
+    <!-- 只有三项，所以直接写死 -->
+    <!-- LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/restaurant_menu_pagemiddle_item_1"
+            android:name="com.icsfood.icsfood.MiddleItemFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            tools:layout="@layout/fragment_middle_item" >
+            <include layout="@layout/fragment_middle_item"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/restaurant_menu_pagemiddle_item_2"
+            android:name="com.icsfood.icsfood.MiddleItemFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            tools:layout="@layout/fragment_middle_item" >
+            <include layout="@layout/fragment_middle_item"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/restaurant_menu_pagemiddle_item_3"
+            android:name="com.icsfood.icsfood.MiddleItemFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            tools:layout="@layout/fragment_middle_item" >
+            <include layout="@layout/fragment_middle_item"/>
+        </LinearLayout>
+    </LinearLayout> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <ScrollView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+        	android:padding="6dp"
+        	android:scrollbars="none">
+	        <TextView
+	            android:id="@+id/restaurant_menu_page_remark"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text=""
+	            android:textColor="@color/textblue"
+	            android:textSize="10sp" />
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+
+        <Button
+            android:id="@+id/menu_collect"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="collectMenuClick"
+            android:layout_weight="10"
+            android:drawableLeft="@drawable/collect_icon"
+            android:drawablePadding="-30dp"
+            android:text="@string/store"
+            android:textStyle="bold"
+            android:background="@color/green" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/menu_share"
+            style="@android:style/Widget.Holo.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="buyClick"
+            android:layout_weight="10"
+            android:text="@string/buy_now"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:paddingLeft="30dp"
+            android:background="@color/green" />
+    </LinearLayout>
+</LinearLayout>

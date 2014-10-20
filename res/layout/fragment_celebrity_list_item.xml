@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.icsfood.icsfood.CelebrityListItemFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+    <ImageView
+        android:id="@+id/grid_item_image"
+        android:layout_width="170dp"
+        android:layout_height="107dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/white"
+        android:id="@+id/celebrity_name"
+        android:padding="6dp" />
+</LinearLayout>

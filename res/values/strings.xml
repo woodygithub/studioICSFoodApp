@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fine Dining</string>
+
+    <string name="exit_toast">press again to exit!</string>
+    <string name="store">Add to Favorites</string>
+    <string name="alreadystore">Already collected</string>
+    <string name="share">Share</string>
+    <string name="custom_menu">Custom menu</string>
+    <string name="recommend">Recommend</string>
+    <string name="more">more</string>
+	<string name="comment">comment</string>
+	<string name="expert">expert</string>
+	<string name="customer">customer</string>
+	<string name="expert_comment">expert comment</string>
+	<string name="baseinfo">baseinfo</string>
+	<string name="enter_code">Please enter your comment</string>
+	<string name="ICS_video">ICS video</string>
+
+    <string name="login">Login</string>
+    <string name="login_not_a_member">Not a member?</string>
+
+    <string name="login_sign_up">Sign Up</string>
+    <string name="username_email">username/E-mail</string>
+    <string name="email">E-mail</string>
+    <string name="nickname">Nickname</string>
+    <string name="sure_to_logout">Log out?</string>
+    <string name="please_login">Please Login</string>
+    <string name="please_input_comment">Please input comment</string>
+    
+    <string name="Commons.Prompt">Prompt</string>
+    
+    <string name="reg_upload_photos">Upload Photos</string>
+    
+    <string name="submit">Submit</string>
+    
+    <string name="mobilephoto">MobilePhoto</string>
+    
+    <string name="password">Password</string>
+    
+	<string-array name="get_pic_mode">
+	    <item >Camere</item>
+	    <item >Choose local image</item>
+	</string-array>
+	
+    <string name="preview">Preview</string>
+    <string name="please_choose">Please choose</string>
+    <string name="please_upload_photo">Please upload photo</string>
+    <string name="please_input_email">Please input email</string>
+    <string name="please_input_valid_email">Please input valid email</string>
+    <string name="please_input_nickname">Please input nickname</string>
+    <string name="please_input_mobile">Please input mobile</string>
+    <string name="please_input_valid_mobile">Please input valid mobile</string>
+    <string name="please_input_password">Please input password</string>
+    <string name="please_input_words">Please input words</string>
+    <string name="please_input_emailpassword">Please input email and password</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="menu">Menu</string>
+    <string name="private_menu">Menu</string>
+    <string name="activity">Activity</string>
+    <string name="star">Discovery</string>
+    <string name="setting">Setting</string>
+	<string name="preferential_information">Preferential information</string>
+	<string name="environment">Environment</string>
+	<string name="architecture">Architecture</string>
+	<string name="atmosphere">Atmosphere</string>
+	<string name="remarks">Remarks</string>
+	<string name="parking_information">Parking information</string>
+	<string name="costs">Costs:</string>
+    <string name="environment_gallery">Environment Gallery</string>
+    <string name="menu_gallery">Menu Gallery</string>
+	<string name="video">Vedio</string>
+	<string name="buy_now">Buy Now</string>
+	<string name="price">Price:￥</string>
+	<string name="number">Number: </string>
+	<string name="total">Total:￥</string>
+	<string name="order_number">Order Number:</string>
+	<string name="my_order">My Order</string>
+	<string name="my_stores">My Stores</string>
+	<string name="order_no">Order no:</string>
+	<string name="order_time">Order time:</string>
+	<string name="redeem">REDEEM</string>
+	<string name="code">code</string>
+	<string name="my_restaurant">my restaurant</string>
+    <string name="my_menu">my menu</string>
+    <string name="my_activity">my activity</string>
+    <string name="custom_order">Order</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="unavailable">unavailable</string>
+    <string name="available">available</string>
+    <string name="not_pay">not paid</string>
+    <string name="room">room</string>
+    <string name="wifi">wifi</string>
+    <string name="creditcard">credit card</string>
+    <string name="takeout">take out</string>
+    <string name="waitingarea">wait area</string>
+    <string name="accessibility">accessibility</string>
+    <string name="babychair">baby chair</string>
+    <string name="parkinglot">parking lot</string>
+    <string name="roommaxpeople">room max people:</string>
+    <string name="Not_Redeemed">Not Redeemed</string>
+    <string name="Redeemed">Redeemed</string>
+    <string name="order_success_text">order success,please check order status</string>
+</resources>
