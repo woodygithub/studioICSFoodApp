@@ -32,7 +32,7 @@ public class CaptureImgFrameLayout extends FrameLayout {
 		Bitmap bitmap = getDrawingCache();
 		int offset=(int) (paint.getStrokeWidth()/2)+1;
 		Bitmap bitmap2 = Bitmap.createBitmap(bitmap, rect.left+offset, rect.top+offset, rect.width()-2*offset, rect.height()-2*offset);
-		destroyDrawingCache();//»ØÊÕBitmap
+		destroyDrawingCache();//å›žæ”¶Bitmap
 		return bitmap2;
 	}
 	private void initRectAndPaint(){
