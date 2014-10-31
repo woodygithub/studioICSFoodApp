@@ -23,7 +23,7 @@
             android:text="@string/custom_menu"
             android:textColor="@android:color/white" />
     </LinearLayout>
-	<com.org.icsfoodapp.views.HorizontalListView 
+	<com.org.icsfoodapp.views.HorizontalListView
 	    android:id="@+id/restanrant_activity_smallgallery"
 	    android:layout_width="match_parent"
 	    android:layout_height="110dp" />

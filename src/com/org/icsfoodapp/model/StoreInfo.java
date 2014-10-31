@@ -3,8 +3,6 @@ package com.org.icsfoodapp.model;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
 
 public class StoreInfo extends Response {
 
@@ -20,9 +18,9 @@ public class StoreInfo extends Response {
         String nickname;
         String head_image;
         Star star;
-		List<RestaurantInList> restaurantStarList;
-        List<Activity> DishesStarList;
-        List<Activity> ActivityStarList;
+		List<RestaurantList.RestaurantInList> restaurantStarList;
+        List<RestaurantResponse.RestaurantInfo.Activity> DishesStarList;
+        List<RestaurantResponse.RestaurantInfo.Activity> ActivityStarList;
         public String getId() {
 			return id;
 		}
@@ -47,22 +45,22 @@ public class StoreInfo extends Response {
 		public void setStar(Star star) {
 			this.star = star;
 		}
-		public List<RestaurantInList> getRestaurantStarList() {
+		public List<RestaurantList.RestaurantInList> getRestaurantStarList() {
 			return restaurantStarList;
 		}
-		public void setRestaurantStarList(List<RestaurantInList> restaurantStarList) {
+		public void setRestaurantStarList(List<RestaurantList.RestaurantInList> restaurantStarList) {
 			this.restaurantStarList = restaurantStarList;
 		}
-		public List<Activity> getDishesStarList() {
+		public List<RestaurantResponse.RestaurantInfo.Activity> getDishesStarList() {
 			return DishesStarList;
 		}
-		public void setDishesStarList(List<Activity> dishesStarList) {
+		public void setDishesStarList(List<RestaurantResponse.RestaurantInfo.Activity> dishesStarList) {
 			DishesStarList = dishesStarList;
 		}
-		public List<Activity> getActivityStarList() {
+		public List<RestaurantResponse.RestaurantInfo.Activity> getActivityStarList() {
 			return ActivityStarList;
 		}
-		public void setActivityStarList(List<Activity> activityStarList) {
+		public void setActivityStarList(List<RestaurantResponse.RestaurantInfo.Activity> activityStarList) {
 			ActivityStarList = activityStarList;
 		}
 		public static class Star {

@@ -1,7 +1,5 @@
 package com.org.icsfoodapp;
 
-import java.util.ArrayList;
-
 import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.pager.NetImgsViewPager;
 

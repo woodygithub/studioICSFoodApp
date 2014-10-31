@@ -1,7 +1,5 @@
 package com.org.icsfoodapp.model;
 
-import android.R.integer;
-
 public class OrderResponse extends Response {
 	
 	OrderResponseData data;

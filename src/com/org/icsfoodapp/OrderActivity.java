@@ -6,6 +6,8 @@ import org.apache.http.message.BasicNameValuePair;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import com.org.icsfoodapp.model.AfterPayResponse;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,9 +25,8 @@ import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
-import com.org.icsfoodapp.model.AfterPayResponse;
+
 import com.org.icsfoodapp.model.OrderResponse;
-import com.org.icsfoodapp.model.Response;
 
 public class OrderActivity extends Activity {
 
@@ -33,25 +34,25 @@ public class OrderActivity extends Activity {
 	public static final int MENU_TYP = 2;
 	View view;
 	Spinner mSpinner;
-	com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity r;
+	RestaurantResponse.RestaurantInfo.Activity r;
 	boolean isNew;
 	
 	public static void start(Activity activity,
-			com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity data, int typ) {
+			RestaurantResponse.RestaurantInfo.Activity data, int typ) {
 		start(activity, data, typ, true);
 	}
 	
 	public static void start(Activity activity,
-			com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity data, int typ, boolean isNew) {
+			RestaurantResponse.RestaurantInfo.Activity data, int typ, boolean isNew) {
 		activity.startActivity(new Intent().setClass(activity, OrderActivity.class)
-			.putExtra(com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity.class.getName(), data)
+			.putExtra(RestaurantResponse.RestaurantInfo.Activity.class.getName(), data)
 			.putExtra(Integer.class.getName(), typ).putExtra(Boolean.class.getName(), isNew));
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		r = (com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity)getIntent()
-			.getSerializableExtra(com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity.class
+		r = (RestaurantResponse.RestaurantInfo.Activity)getIntent()
+			.getSerializableExtra(RestaurantResponse.RestaurantInfo.Activity.class
 			.getName());
 		isNew = getIntent().getBooleanExtra(Boolean.class.getName(), true);
 		view = getLayoutInflater().inflate(R.layout.order_layout, null, false);

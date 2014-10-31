@@ -10,6 +10,7 @@ import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
+
 import com.org.icsfoodapp.model.Response;
 import com.org.icsfoodapp.pickavator.CommonChoosePicActivity;
 

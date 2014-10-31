@@ -3,8 +3,8 @@ package com.org.icsfoodapp;
 import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
+import com.org.icsfoodapp.model.RestaurantList;
 import com.org.icsfoodapp.model.RestaurantResponse;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,8 +12,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -21,15 +19,15 @@ public class BigImageActivity extends Activity {
 	
 	TopBarContain topBarContain;
 	View view;
-	RestaurantInList r;
-	public static void start(Fragment fragment, RestaurantInList data) {
+	RestaurantList.RestaurantInList r;
+	public static void start(Fragment fragment, RestaurantList.RestaurantInList data) {
 		fragment.startActivity(new Intent().setClass(fragment.getActivity(), BigImageActivity.class)
-				.putExtra(RestaurantInList.class.getName(),data));
+				.putExtra(RestaurantList.RestaurantInList.class.getName(),data));
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		r = (RestaurantInList) getIntent().getSerializableExtra(RestaurantInList.class.getName());
+		r = (RestaurantList.RestaurantInList) getIntent().getSerializableExtra(RestaurantList.RestaurantInList.class.getName());
 		view =  getLayoutInflater().inflate(R.layout.big_imageactivity, null, false);
 		
 		topBarContain = new TopBarContain(this)

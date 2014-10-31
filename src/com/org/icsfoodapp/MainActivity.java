@@ -8,8 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import com.org.icsfoodapp.fragments.SettingFragment;
+import com.org.icsfoodapp.model.User;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -20,15 +21,13 @@ import android.widget.Toast;
 
 import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.http.HttpUtils;
+
 import com.org.icsfoodapp.fragments.HomeFragments;
 import com.org.icsfoodapp.fragments.MyStoreFragment;
 import com.org.icsfoodapp.fragments.RestaurantActivityListFragments;
 import com.org.icsfoodapp.fragments.RestaurantListFragments;
 import com.org.icsfoodapp.fragments.RestaurantMenuListFragments;
-import com.org.icsfoodapp.fragments.SettingFragment;
 import com.org.icsfoodapp.fragments.StarGridFragments;
-import com.org.icsfoodapp.fragments.StoreCommFragments;
-import com.org.icsfoodapp.model.User;
 
 public class MainActivity extends FragmentActivity {
 	private static final int Request_Login = 1;

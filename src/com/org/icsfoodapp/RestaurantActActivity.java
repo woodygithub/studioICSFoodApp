@@ -1,6 +1,5 @@
 package com.org.icsfoodapp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.methods.HttpRequestBase;
@@ -10,23 +9,19 @@ import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
-import com.google.gson.Gson;
-import com.org.icsfoodapp.R.layout;
-import com.org.icsfoodapp.R.string;
+
 import com.org.icsfoodapp.model.ImageModelImp;
 import com.org.icsfoodapp.model.Response;
 import com.org.icsfoodapp.model.RestaurantAct;
 import com.org.icsfoodapp.model.User;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Dishes;
 import com.org.icsfoodapp.pickavator.WXShareUtils;
 import com.org.icsfoodapp.views.HorizontalListView;
 
-import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.wifi.WifiConfiguration.Status;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -34,29 +29,28 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class RestaurantActActivity extends Activity {
 	View view;
 	RestaurantAct result;
-	public static void start(Fragment fragment, com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity data) {
+	public static void start(Fragment fragment, RestaurantResponse.RestaurantInfo.Activity data) {
 		fragment.startActivity(new Intent().setClass(fragment.getActivity(), RestaurantActActivity.class)
-				.putExtra(com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity.class.getName(),data));
+				.putExtra(RestaurantResponse.RestaurantInfo.Activity.class.getName(),data));
 	}
-	public static void start(Activity activity, com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity data) {
+	public static void start(Activity activity, RestaurantResponse.RestaurantInfo.Activity data) {
 		activity.startActivity(new Intent().setClass(activity, RestaurantActActivity.class)
-				.putExtra(com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity.class.getName(),data));
+				.putExtra(RestaurantResponse.RestaurantInfo.Activity.class.getName(),data));
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity r = 
-				((com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity)
+		RestaurantResponse.RestaurantInfo.Activity r =
+				((RestaurantResponse.RestaurantInfo.Activity)
 				getIntent().getSerializableExtra
-				(com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity.class.getName()));
+				(RestaurantResponse.RestaurantInfo.Activity.class.getName()));
 		view = getLayoutInflater().inflate(R.layout.fragment_activity_page, null, false);
 		
 		

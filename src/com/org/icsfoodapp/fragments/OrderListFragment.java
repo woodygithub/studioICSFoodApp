@@ -16,12 +16,9 @@
 
 package com.org.icsfoodapp.fragments;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fax.utils.bitmap.BitmapManager;
-import com.fax.utils.loader.HttpAsyncTaskLoader;
 import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
@@ -30,40 +27,15 @@ import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.OrderDetailedActivity;
 import com.org.icsfoodapp.R;
 import com.org.icsfoodapp.model.OrderListResponse;
-import com.org.icsfoodapp.model.OrderListResponse.OrderListData;
-import com.org.icsfoodapp.model.Response;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.ListFragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.SearchViewCompat;
-import android.support.v4.widget.SearchViewCompat.OnCloseListenerCompat;
-import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
-import android.support.v4.widget.SimpleCursorAdapter;
 
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.BaseColumns;
-import android.provider.Contacts.People;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -83,10 +55,10 @@ public class OrderListFragment extends Fragment {
         listView.setPullLoadEnable(false);
         listView.setPullRefreshWhitoutViewEnable(true);
 		listView.setPullLoadWhitoutViewEnable(true);
-        listView.setAdapter(new ObjectXAdapter.PagesAdapter<OrderListData>() {
+        listView.setAdapter(new ObjectXAdapter.PagesAdapter<OrderListResponse.OrderListData>() {
 
 			@Override
-			public View bindView(OrderListData data, int position, View convertView) {
+			public View bindView(OrderListResponse.OrderListData data, int position, View convertView) {
 				View view = inflater.inflate(R.layout.order_list_item, null, false);
 				BitmapManager.bindView((ImageView)view.findViewById(R.id.order_list_image), data.getImage());
 				((TextView)view.findViewById(R.id.order_list_title)).setText(data.getOrder_title());
@@ -105,7 +77,7 @@ public class OrderListFragment extends Fragment {
 			}
 
 			@Override
-			public List<OrderListData> instanceNewList(String json) throws Exception {
+			public List<OrderListResponse.OrderListData> instanceNewList(String json) throws Exception {
 				String dataString = json;
 				Gson gson = new Gson();
 				OrderListResponse response = gson.fromJson(json, new TypeToken<OrderListResponse>(){}.getType());
@@ -116,7 +88,7 @@ public class OrderListFragment extends Fragment {
 			}
 
 			@Override
-			public void onItemClick(OrderListData data, View view, int position, long id) {
+			public void onItemClick(OrderListResponse.OrderListData data, View view, int position, long id) {
 				super.onItemClick(data, view, position, id);
 				OrderDetailedActivity.start(getActivity(), data);
 			}

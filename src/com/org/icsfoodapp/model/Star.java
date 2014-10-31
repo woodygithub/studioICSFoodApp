@@ -2,16 +2,14 @@ package com.org.icsfoodapp.model;
 
 import java.util.List;
 
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
-
 public class Star extends Response {
-	List<RestaurantInfo> data;
+	List<RestaurantResponse.RestaurantInfo> data;
 
-	public List<RestaurantInfo> getData() {
+	public List<RestaurantResponse.RestaurantInfo> getData() {
 		return data;
 	}
 
-	public void setData(List<RestaurantInfo> data) {
+	public void setData(List<RestaurantResponse.RestaurantInfo> data) {
 		this.data = data;
 	}
 }

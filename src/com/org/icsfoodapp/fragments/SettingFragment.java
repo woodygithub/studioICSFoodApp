@@ -14,7 +14,7 @@ import com.fax.utils.view.TopBarContain;
 import com.org.icsfoodapp.MainActivity;
 import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.model.Response;
+
 import com.org.icsfoodapp.model.User;
 import com.org.icsfoodapp.model.UserResponse;
 import com.org.icsfoodapp.pickavator.CommonChoosePicActivity;
@@ -25,8 +25,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

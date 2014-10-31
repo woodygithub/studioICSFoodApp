@@ -2,6 +2,8 @@ package com.org.icsfoodapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.org.icsfoodapp.model.RestaurantList;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,14 +14,12 @@ import android.widget.ImageView;
 
 import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.task.GsonAsyncTask;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse;
 
 public class RestaurantBigImageActivity extends Fragment {
 	OnHeadlineSelectedListener mCallback;
-	public static void start(FragmentActivity fragmentActivity, int id,RestaurantInList data){
+	public static void start(FragmentActivity fragmentActivity, int id,RestaurantList.RestaurantInList data){
 		fragmentActivity.startActivity(new Intent().setClass(fragmentActivity, RestaurantBigImageActivity.class)
-				.putExtra(RestaurantInList.class.getName(), data));
+				.putExtra(RestaurantList.RestaurantInList.class.getName(), data));
 	}
 	
 	interface OnHeadlineSelectedListener {

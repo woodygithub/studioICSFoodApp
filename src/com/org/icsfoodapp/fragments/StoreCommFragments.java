@@ -5,15 +5,17 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.RestaurantActActivity;
+import com.org.icsfoodapp.RestaurantInnerActivity;
+import com.org.icsfoodapp.model.RestaurantList;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.fax.utils.bitmap.BitmapManager;
@@ -22,19 +24,10 @@ import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.org.icsfoodapp.MainActivity;
-import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RestaurantActActivity;
-import com.org.icsfoodapp.RestaurantInnerActivity;
+
 import com.org.icsfoodapp.RestaurantMenuIneerActivity;
-import com.org.icsfoodapp.StarDetailedActivity;
 import com.org.icsfoodapp.model.ImageModelImp;
-import com.org.icsfoodapp.model.RestaurantList;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
-import com.org.icsfoodapp.model.Star;
 import com.org.icsfoodapp.model.StoreInfo;
 
 public class StoreCommFragments extends MenuLockFragment {
@@ -130,11 +123,11 @@ public class StoreCommFragments extends MenuLockFragment {
 					long id) {
 				super.onItemClick(imageModel, view, position, id);
 				if (TYPE_1.equals(type)) {
-					RestaurantInnerActivity.start(StoreCommFragments.this, (RestaurantInList) imageModel);
+					RestaurantInnerActivity.start(StoreCommFragments.this, (RestaurantList.RestaurantInList) imageModel);
 				}else if(TYPE_2.equals(type)) {
-					RestaurantMenuIneerActivity.start(StoreCommFragments.this, (Activity) imageModel);
+					RestaurantMenuIneerActivity.start(StoreCommFragments.this, (RestaurantResponse.RestaurantInfo.Activity) imageModel);
 				}else if(TYPE_3.equals(type)) {
-					RestaurantActActivity.start(StoreCommFragments.this, (Activity) imageModel);
+					RestaurantActActivity.start(StoreCommFragments.this, (RestaurantResponse.RestaurantInfo.Activity) imageModel);
 				}
 			}
 		});

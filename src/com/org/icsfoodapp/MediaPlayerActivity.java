@@ -16,7 +16,7 @@ import android.widget.SeekBar;
 import android.widget.VideoView;
 
 import com.fax.utils.view.TopBarContain;
-import com.fax.utils.view.media.MediaController;
+import com.woody.wxj.view.media.MediaController;
 
 @SuppressLint("NewApi")
 public class MediaPlayerActivity extends Activity {

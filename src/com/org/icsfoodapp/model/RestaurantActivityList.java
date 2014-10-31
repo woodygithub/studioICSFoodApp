@@ -2,17 +2,15 @@ package com.org.icsfoodapp.model;
 
 import java.util.ArrayList;
 
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
-
 public class RestaurantActivityList extends Response {
 
-	ArrayList<Activity> data;
+	ArrayList<RestaurantResponse.RestaurantInfo.Activity> data;
 
-	public ArrayList<Activity> getData() {
+	public ArrayList<RestaurantResponse.RestaurantInfo.Activity> getData() {
 		return data;
 	}
 
-	public void setData(ArrayList<Activity> data) {
+	public void setData(ArrayList<RestaurantResponse.RestaurantInfo.Activity> data) {
 		this.data = data;
 	}
 }

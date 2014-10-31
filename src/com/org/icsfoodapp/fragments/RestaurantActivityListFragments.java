@@ -5,15 +5,15 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.RestaurantActActivity;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.fax.utils.bitmap.BitmapManager;
@@ -22,18 +22,14 @@ import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.org.icsfoodapp.MainActivity;
-import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RestaurantActActivity;
+
 import com.org.icsfoodapp.model.RestaurantActivityList;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
 
 public class RestaurantActivityListFragments extends MenuLockFragment {
 	
 	RestaurantActivityList restaurantActivityList;
-	ArrayList<Activity> dataList;
+	ArrayList<RestaurantResponse.RestaurantInfo.Activity> dataList;
 	
 	public static void start(FragmentActivity fragmentActivity,int id) {
 			fragmentActivity.getSupportFragmentManager().beginTransaction()
@@ -60,9 +56,9 @@ public class RestaurantActivityListFragments extends MenuLockFragment {
 		listview.setPullLoadEnable(false);
 		listview.setPullRefreshWhitoutViewEnable(true);
 		listview.setPullLoadWhitoutViewEnable(true);
-		listview.setAdapter(new ObjectXAdapter.PagesAdapter<Activity>() {
+		listview.setAdapter(new ObjectXAdapter.PagesAdapter<RestaurantResponse.RestaurantInfo.Activity>() {
 			@Override
-			public View bindView(Activity activity, int position, View view) {
+			public View bindView(RestaurantResponse.RestaurantInfo.Activity activity, int position, View view) {
 				LayoutInflater inflater = LayoutInflater.from(getActivity().getApplication());
 				view = inflater.inflate(R.layout.fragment_activity_list_item, null);
 				BitmapManager.init(RestaurantActivityListFragments.this.getActivity());
@@ -79,11 +75,11 @@ public class RestaurantActivityListFragments extends MenuLockFragment {
 				return MyApp.ApiUrl + "Activity/list/p/1/lang/?p="+page+"&lang=" + MyApp.getLang();
 			}
 			@Override
-			public List<Activity> instanceNewList(String json) throws Exception {
+			public List<RestaurantResponse.RestaurantInfo.Activity> instanceNewList(String json) throws Exception {
 				Gson gson = new Gson();
 				restaurantActivityList = gson.fromJson(json, new TypeToken<RestaurantActivityList>() {}.getType());
 				if (dataList==null) {
-					dataList = new ArrayList<Activity>();
+					dataList = new ArrayList<RestaurantResponse.RestaurantInfo.Activity>();
 				}
 				for (int i = 0; i < restaurantActivityList.getData().size(); i++) {
 					dataList.add(restaurantActivityList.getData().get(i));
@@ -91,9 +87,9 @@ public class RestaurantActivityListFragments extends MenuLockFragment {
 				return restaurantActivityList.getData();
 			}
 			@Override
-			public void onItemClick(Activity t, View view, int position, long id) {
+			public void onItemClick(RestaurantResponse.RestaurantInfo.Activity t, View view, int position, long id) {
 				super.onItemClick(t, view, position, id);
-				RestaurantActActivity.start(RestaurantActivityListFragments.this, dataList.get(position-1));
+				RestaurantActActivity.start(RestaurantActivityListFragments.this, dataList.get(position - 1));
 			}
 		});
 		return topBarContain;

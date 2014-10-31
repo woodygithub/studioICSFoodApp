@@ -7,47 +7,40 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.model.RestaurantImageGrid;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.baidu.lbsapi.auth.i;
 import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import com.org.icsfoodapp.model.ImageModelImp;
-import com.org.icsfoodapp.model.RestaurantImageGrid;
-import com.org.icsfoodapp.model.RestaurantImageGrid.RestaurantImageGradeData;
-import com.org.icsfoodapp.model.RestaurantImageGrid.RestaurantImageGradeData.CaipingImage;
-import com.org.icsfoodapp.model.RestaurantImageGrid.RestaurantImageGradeData.HuanjingImage;
-import com.org.icsfoodapp.model.RestaurantImageGrid.RestaurantImageGradeData.VideoImage;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
-import com.org.icsfoodapp.model.Star;
 
 public class ImageGridActivity extends Activity {
-	RestaurantInfo data;
+	RestaurantResponse.RestaurantInfo data;
 	RestaurantImageGrid lists;
 	String tag;
 	public static final String H_I = "HuanjingImage";
 	public static final String C_I = "CaipingImage";
 	public static final String V_I = "VideoImage";
 	private List<ImageModelImp> result;
-	public static void start(Activity activity, RestaurantInfo data ,String tag){
+	public static void start(Activity activity, RestaurantResponse.RestaurantInfo data ,String tag){
 		activity.startActivity(new Intent().setClass(activity, ImageGridActivity.class)
-				.putExtra(RestaurantInfo.class.getName(), data).putExtra(String.class.getName(), tag));
+				.putExtra(RestaurantResponse.RestaurantInfo.class.getName(), data).putExtra(String.class.getName(), tag));
 	}
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		data = (RestaurantInfo) getIntent().getSerializableExtra(RestaurantInfo.class.getName());
+		data = (RestaurantResponse.RestaurantInfo) getIntent().getSerializableExtra(RestaurantResponse.RestaurantInfo.class.getName());
 		tag = getIntent().getStringExtra(String.class.getName());
 		ObjectXListView listview = new ObjectXListView(this);
 		listview.setDivider(new ColorDrawable(Color.WHITE));
@@ -81,20 +74,20 @@ public class ImageGridActivity extends Activity {
 				result = new ArrayList<ImageModelImp>();
 				switch (tag) {
 				case H_I:
-					List<HuanjingImage> huanjingImages = lists.getData().getHuanjing_image();
-					for (HuanjingImage huanjingImage : huanjingImages) {
+					List<RestaurantImageGrid.RestaurantImageGradeData.HuanjingImage> huanjingImages = lists.getData().getHuanjing_image();
+					for (RestaurantImageGrid.RestaurantImageGradeData.HuanjingImage huanjingImage : huanjingImages) {
 						result.add(huanjingImage);
 					}
 					return result;
 				case C_I:
-					List<CaipingImage> caipingImages = lists.getData().getCaiping_image();
-					for (CaipingImage caipingImage : caipingImages) {
+					List<RestaurantImageGrid.RestaurantImageGradeData.CaipingImage> caipingImages = lists.getData().getCaiping_image();
+					for (RestaurantImageGrid.RestaurantImageGradeData.CaipingImage caipingImage : caipingImages) {
 						result.add(caipingImage);
 					}
 					return result;
 				case V_I:
-					List<VideoImage> videoImages = lists.getData().getVideo_image();
-					for (VideoImage videoImage : videoImages) {
+					List<RestaurantImageGrid.RestaurantImageGradeData.VideoImage> videoImages = lists.getData().getVideo_image();
+					for (RestaurantImageGrid.RestaurantImageGradeData.VideoImage videoImage : videoImages) {
 						result.add(videoImage);
 					}
 					return result;

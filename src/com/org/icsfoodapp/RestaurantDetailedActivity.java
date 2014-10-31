@@ -13,16 +13,15 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PaintDrawable;
 import android.graphics.drawable.shapes.ArcShape;
+import com.org.icsfoodapp.model.RestaurantDetailedModel;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +49,7 @@ import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.CardTextView;
 import com.fax.utils.view.TopBarContain;
-import com.org.icsfoodapp.model.RestaurantDetailedModel;
-import com.org.icsfoodapp.model.RestaurantDetailedModel.RestaurantDetailedData;
+
 import com.org.icsfoodapp.model.RestaurantResponse;
 
 public class RestaurantDetailedActivity extends Activity {
@@ -78,7 +76,7 @@ public class RestaurantDetailedActivity extends Activity {
 				.getSerializableExtra(RestaurantResponse.RestaurantInfo.class.getName());
 		String url = MyApp.ApiUrl + "Restaurant/more/id/1?id=" + data.getId()+"&lang="+MyApp.getLang();
 		TopBarContain topBarContain = new TopBarContain(this)
-			.setTitle("",R.drawable.topbar_ic_logo, 0)
+			.setTitle("", R.drawable.topbar_ic_logo, 0)
 			.setLeftFinish(null, R.drawable.topbar_ic_back)
 			.setContentView(R.layout.restaurant_detailed_layout);
 		setContentView(topBarContain);
@@ -119,7 +117,7 @@ public class RestaurantDetailedActivity extends Activity {
 		super.onDestroy();
 	}
 	private void init(RestaurantDetailedModel result){
-		RestaurantDetailedData data = result.getData();
+		RestaurantDetailedModel.RestaurantDetailedData data = result.getData();
 		// 注册 SDK 广播监听者
 		IntentFilter iFilter = new IntentFilter();
 		iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR);

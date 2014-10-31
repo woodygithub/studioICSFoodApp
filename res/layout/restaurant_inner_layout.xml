@@ -298,7 +298,7 @@
 			            android:focusable="true"
 			            android:focusableInTouchMode="true"
 			            android:textColor="@android:color/white"/>
-					<com.org.icsfoodapp.views.HorizontalListView 
+					<com.org.icsfoodapp.views.HorizontalListView
 					    android:id="@+id/restanrant_galleryactivities"
 					    android:layout_width="match_parent"
 					    android:layout_height="100dp" 

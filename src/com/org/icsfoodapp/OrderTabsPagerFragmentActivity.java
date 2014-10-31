@@ -21,21 +21,19 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.style.UpdateAppearance;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 
-import com.baidu.android.bbalbs.common.a.b;
 import com.fax.utils.view.TopBarContain;
+
 import com.org.icsfoodapp.fragments.OrderListFragment;;
 
 /**

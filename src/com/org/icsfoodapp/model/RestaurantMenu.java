@@ -2,8 +2,6 @@ package com.org.icsfoodapp.model;
 
 import java.util.List;
 
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
-
 public class RestaurantMenu extends Response {
 
 	RestaurantMenuInner data;
@@ -15,26 +13,26 @@ public class RestaurantMenu extends Response {
 		this.data = data;
 	}
 	public static class RestaurantMenuInner{
-		List<Activity> push;
-		List<Activity> subpush;
-		List<Activity> list;
+		List<RestaurantResponse.RestaurantInfo.Activity> push;
+		List<RestaurantResponse.RestaurantInfo.Activity> subpush;
+		List<RestaurantResponse.RestaurantInfo.Activity> list;
 		String total;
-		public List<Activity> getPush() {
+		public List<RestaurantResponse.RestaurantInfo.Activity> getPush() {
 			return push;
 		}
-		public void setPush(List<Activity> push) {
+		public void setPush(List<RestaurantResponse.RestaurantInfo.Activity> push) {
 			this.push = push;
 		}
-		public List<Activity> getSubpush() {
+		public List<RestaurantResponse.RestaurantInfo.Activity> getSubpush() {
 			return subpush;
 		}
-		public void setSubpush(List<Activity> subpush) {
+		public void setSubpush(List<RestaurantResponse.RestaurantInfo.Activity> subpush) {
 			this.subpush = subpush;
 		}
-		public List<Activity> getList() {
+		public List<RestaurantResponse.RestaurantInfo.Activity> getList() {
 			return list;
 		}
-		public void setList(List<Activity> list) {
+		public void setList(List<RestaurantResponse.RestaurantInfo.Activity> list) {
 			this.list = list;
 		}
 		public String getTotal() {

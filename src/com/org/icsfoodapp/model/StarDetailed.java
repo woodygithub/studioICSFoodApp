@@ -2,8 +2,6 @@ package com.org.icsfoodapp.model;
 
 import java.util.List;
 
-import android.R.integer;
-
 import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
 
 public class StarDetailed extends Response {

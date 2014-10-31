@@ -1,17 +1,16 @@
 package com.org.icsfoodapp.fragments;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.model.RestaurantList;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -23,12 +22,8 @@ import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.org.icsfoodapp.BigImageActivity;
-import com.org.icsfoodapp.MainActivity;
-import com.org.icsfoodapp.MyApp;
+
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RestaurantInnerActivity;
-import com.org.icsfoodapp.model.RestaurantList;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
 
 public class RestaurantListFragments extends MenuLockFragment {
 	RestaurantList restaurantList;
@@ -59,9 +54,9 @@ public class RestaurantListFragments extends MenuLockFragment {
 		listview.setPullLoadEnable(false);
 		listview.setPullRefreshWhitoutViewEnable(true);
 		listview.setPullLoadWhitoutViewEnable(true);
-		listview.setAdapter(new ObjectXAdapter.PagesAdapter<RestaurantInList>() {
+		listview.setAdapter(new ObjectXAdapter.PagesAdapter<RestaurantList.RestaurantInList>() {
 			@Override
-			public View bindView(RestaurantInList restaurantListItem, int position, View view) {
+			public View bindView(RestaurantList.RestaurantInList restaurantListItem, int position, View view) {
 				LayoutInflater inflater = LayoutInflater.from(getActivity().getApplication());
 				view = inflater.inflate(R.layout.fragment_restaurant_list_item, null);
 				BitmapManager.init(RestaurantListFragments.this.getActivity());
@@ -79,7 +74,7 @@ public class RestaurantListFragments extends MenuLockFragment {
 			}
 
 			@Override
-			public List<RestaurantInList> instanceNewList(String json)
+			public List<RestaurantList.RestaurantInList> instanceNewList(String json)
 					throws Exception {
 				Gson gson = new Gson();
 				restaurantList = gson.fromJson(json, new TypeToken<RestaurantList>() {}.getType());
@@ -87,7 +82,7 @@ public class RestaurantListFragments extends MenuLockFragment {
 			}
 
 			@Override
-			public void onItemClick(RestaurantInList data, View view, int position, long id) {
+			public void onItemClick(RestaurantList.RestaurantInList data, View view, int position, long id) {
 				super.onItemClick(data, view, position, id);
 				//RestaurantInnerActivity.start(RestaurantListFragments.this, data, true);
 				BigImageActivity.start(RestaurantListFragments.this, data);

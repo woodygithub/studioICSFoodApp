@@ -3,15 +3,12 @@ package com.org.icsfoodapp;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.fax.utils.http.HttpUtils;
 import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
 import com.org.icsfoodapp.model.User;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;

@@ -25,7 +25,7 @@
             android:padding="6dp"
             android:textColor="@android:color/white" />
     </LinearLayout>
-	<com.org.icsfoodapp.views.HorizontalListView 
+	<com.org.icsfoodapp.views.HorizontalListView
 	    android:id="@+id/restanrant_menu_smallgallery"
 	    android:layout_width="match_parent"
 	    android:layout_height="110dp" />

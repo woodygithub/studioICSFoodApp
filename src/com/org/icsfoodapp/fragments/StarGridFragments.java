@@ -4,15 +4,16 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.model.RestaurantResponse;
+import com.org.icsfoodapp.model.Star;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.fax.utils.bitmap.BitmapManager;
@@ -21,15 +22,9 @@ import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.org.icsfoodapp.MainActivity;
-import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RestaurantInnerActivity;
+
 import com.org.icsfoodapp.StarDetailedActivity;
-import com.org.icsfoodapp.model.RestaurantList;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
-import com.org.icsfoodapp.model.Star;
 
 public class StarGridFragments extends MenuLockFragment {
 	Star star;
@@ -59,7 +54,7 @@ public class StarGridFragments extends MenuLockFragment {
 		listview.setPullLoadEnable(false);
 		listview.setPullRefreshWhitoutViewEnable(true);
 		listview.setPullLoadWhitoutViewEnable(true);
-		listview.setAdapter(new ObjectXAdapter.GridPagesAdapter<RestaurantInfo>(2) {
+		listview.setAdapter(new ObjectXAdapter.GridPagesAdapter<RestaurantResponse.RestaurantInfo>(2) {
 
 			@Override
 			public String getUrl(int page) {
@@ -67,7 +62,7 @@ public class StarGridFragments extends MenuLockFragment {
 			}
 
 			@Override
-			public List<RestaurantInfo> instanceNewList(String json)
+			public List<RestaurantResponse.RestaurantInfo> instanceNewList(String json)
 					throws Exception {
 				Gson gson = new Gson();
 				star = gson.fromJson(json, new TypeToken<Star>() {}.getType());
@@ -75,7 +70,7 @@ public class StarGridFragments extends MenuLockFragment {
 			}
 
 			@Override
-			protected View bindGridView(final RestaurantInfo starInfo, int position,
+			protected View bindGridView(final RestaurantResponse.RestaurantInfo starInfo, int position,
 					View view) {
 				LayoutInflater inflater = LayoutInflater.from(getActivity().getApplication());
 				view = inflater.inflate(R.layout.fragment_celebrity_list_item, null);

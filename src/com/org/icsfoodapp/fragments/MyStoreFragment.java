@@ -1,13 +1,14 @@
 package com.org.icsfoodapp.fragments;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.message.BasicNameValuePair;
-
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.RestaurantActActivity;
+import com.org.icsfoodapp.RestaurantInnerActivity;
+import com.org.icsfoodapp.RestaurantMenuIneerActivity;
+import com.org.icsfoodapp.model.MyStoreResponse;
+import com.org.icsfoodapp.model.RestaurantList;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,25 +19,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.alipay.android.app.sdk.R.color;
-import com.fax.utils.Utils;
 import com.fax.utils.bitmap.BitmapManager;
-import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
-import com.org.icsfoodapp.MyApp;
-import com.org.icsfoodapp.OrderDetailedActivity;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RegActivity;
-import com.org.icsfoodapp.RestaurantActActivity;
-import com.org.icsfoodapp.RestaurantInnerActivity;
-import com.org.icsfoodapp.RestaurantMenuIneerActivity;
-import com.org.icsfoodapp.model.MyStoreResponse;
-import com.org.icsfoodapp.model.Response;
-import com.org.icsfoodapp.model.MyStoreResponse.MyStoreData;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
-import com.org.icsfoodapp.pickavator.CommonChoosePicActivity;
 
 public class MyStoreFragment extends Fragment {
 	View view;
@@ -73,10 +59,10 @@ public class MyStoreFragment extends Fragment {
 		BitmapManager.bindView(((ImageView)view.findViewById(R.id.store_avator)), MyApp.getLogedUser().getHeadImageUrl());
 		((TextView)view.findViewById(R.id.store_name)).setText(MyApp.getLogedUser().getNickName());
 		initMore();
-		MyStoreData data = result.getData().get(0);
-		final ArrayList<Activity> activity = data.getActivity();
-		final ArrayList<Activity> dishes = data.getDishes();
-		final ArrayList<Activity> restaurant = data.getRestaurant();
+		MyStoreResponse.MyStoreData data = result.getData().get(0);
+		final ArrayList<RestaurantResponse.RestaurantInfo.Activity> activity = data.getActivity();
+		final ArrayList<RestaurantResponse.RestaurantInfo.Activity> dishes = data.getDishes();
+		final ArrayList<RestaurantResponse.RestaurantInfo.Activity> restaurant = data.getRestaurant();
 		if (activity.size()>0) {
 			BitmapManager.bindView(((ImageView)view.findViewById(R.id.store_activity_image1)), activity.get(0).getImage());
 			((TextView)view.findViewById(R.id.store_activity_text1)).setText(activity.get(0).getName());
@@ -123,7 +109,7 @@ public class MyStoreFragment extends Fragment {
 			view.findViewById(R.id.store_restaurant1).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					RestaurantInnerActivity.start(getActivity(), new RestaurantInList(restaurant.get(0).getId()));
+					RestaurantInnerActivity.start(getActivity(), new RestaurantList.RestaurantInList(restaurant.get(0).getId()));
 				}
 			});
 		}
@@ -133,7 +119,7 @@ public class MyStoreFragment extends Fragment {
 			view.findViewById(R.id.store_restaurant2).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					RestaurantInnerActivity.start(getActivity(), new RestaurantInList(restaurant.get(1).getId()));
+					RestaurantInnerActivity.start(getActivity(), new RestaurantList.RestaurantInList(restaurant.get(1).getId()));
 				}
 			});
 		}

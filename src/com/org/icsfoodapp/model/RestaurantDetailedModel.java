@@ -2,8 +2,6 @@ package com.org.icsfoodapp.model;
 
 import java.util.ArrayList;
 
-import android.R.integer;
-
 import com.google.gson.annotations.SerializedName;
 
 public class RestaurantDetailedModel extends Response {

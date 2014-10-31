@@ -6,16 +6,9 @@ import com.fax.utils.task.ResultAsyncTask;
 import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.TouchImageView;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.R.array;
-import com.org.icsfoodapp.R.drawable;
-import com.org.icsfoodapp.R.id;
-import com.org.icsfoodapp.R.layout;
-import com.org.icsfoodapp.R.string;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,12 +16,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 public class CommonChoosePicActivity extends Activity {
 	static final int CHOOSE_IMAGE_FROM_SDCARD=1;

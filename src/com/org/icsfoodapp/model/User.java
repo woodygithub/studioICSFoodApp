@@ -3,8 +3,6 @@ package com.org.icsfoodapp.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import android.R.integer;
-
 import com.google.gson.annotations.SerializedName;
 
 public class User extends Response implements Serializable{

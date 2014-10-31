@@ -13,7 +13,6 @@ import com.org.icsfoodapp.R;
 import com.org.icsfoodapp.RestaurantInnerActivity;
 import com.org.icsfoodapp.SearchActivity;
 import com.org.icsfoodapp.model.RestaurantList;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,7 +51,7 @@ public class HomeFragments extends Fragment {
 				final NetImgsViewPager viewPager = (NetImgsViewPager) view.findViewById(R.id.view_pager);
 				final PointIndicator pointIndicator = (PointIndicator) view.findViewById(R.id.point_indicator);
 				ArrayList<String> imgList=new ArrayList<String>();
-				for(RestaurantInList restaurantInList:result.getData()){
+				for(RestaurantList.RestaurantInList restaurantInList:result.getData()){
 					imgList.add(restaurantInList.getImage());
 				}
 				viewPager.setImageScaleType(ScaleType.CENTER_CROP);
@@ -62,7 +61,7 @@ public class HomeFragments extends Fragment {
 						image.setOnClickListener(new View.OnClickListener() {
 							public void onClick(View v) {
 								startActivity(new Intent(getActivity(), RestaurantInnerActivity.class)
-											.putExtra(RestaurantInList.class.getName(), result.getData().get(position)));
+											.putExtra(RestaurantList.RestaurantInList.class.getName(), result.getData().get(position)));
 								
 							}
 						});
@@ -72,7 +71,7 @@ public class HomeFragments extends Fragment {
 				pointIndicator.bindViewPager(viewPager, new ViewPager.OnPageChangeListener() {
 					@Override
 					public void onPageSelected(int position) {
-						RestaurantInList r = result.getData().get(position);
+						RestaurantList.RestaurantInList r = result.getData().get(position);
 						((TextView)view.findViewById(R.id.home_restaurant_name)).setText(r.getName());
 						((RatingBar)view.findViewById(R.id.home_restaurant_expertscore)).setRating(r.getScore());
 						((RatingBar)view.findViewById(R.id.home_restaurant_customerscore)).setRating(r.getCustomer_score());

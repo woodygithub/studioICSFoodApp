@@ -7,6 +7,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,12 +21,11 @@ import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
+
 import com.org.icsfoodapp.model.OrderDetailResponse;
-import com.org.icsfoodapp.model.OrderResponse;
 import com.org.icsfoodapp.model.OrderDetailResponse.OrderDetailData;
 import com.org.icsfoodapp.model.OrderDetailResponse.OrderDetailData.OrderCode;
 import com.org.icsfoodapp.model.OrderListResponse.OrderListData;
-import com.org.icsfoodapp.model.Response;
 
 public class OrderDetailedActivity extends Activity {
 
@@ -107,7 +107,7 @@ public class OrderDetailedActivity extends Activity {
 	}
 	public void payOrderClick(View v){
 		if(resultData!=null){
-			com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity data = new com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity();
+			RestaurantResponse.RestaurantInfo.Activity data = new RestaurantResponse.RestaurantInfo.Activity();
 			data.setTuijian_image(resultData.getImage());
 			data.setName(resultData.getName());
 			data.setId(resultData.getRid());

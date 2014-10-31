@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.model.RestaurantList;
+import com.org.icsfoodapp.model.RestaurantResponse;
+import com.org.icsfoodapp.model.StarDetailed;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -21,25 +23,19 @@ import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.org.icsfoodapp.fragments.RestaurantMenuListFragments;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantMenu;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo;
-import com.org.icsfoodapp.model.StarDetailed;
-import com.org.icsfoodapp.model.StarDetailed.StarData.StarRestaurant;
 
 public class StarDetailedActivity extends Activity {
 	StarDetailed starDtl;
 	ObjectXListView listview;
-	public static void start(Fragment fragment,RestaurantInfo data) {
+	public static void start(Fragment fragment,RestaurantResponse.RestaurantInfo data) {
 		fragment.startActivity(new Intent().setClass(fragment.getActivity(), StarDetailedActivity.class)
-				.putExtra(RestaurantInfo.class.getName(),data));
+				.putExtra(RestaurantResponse.RestaurantInfo.class.getName(),data));
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final RestaurantInfo r = (RestaurantInfo)getIntent().getSerializableExtra(RestaurantInfo.class.getName());
+		final RestaurantResponse.RestaurantInfo r = (RestaurantResponse.RestaurantInfo)getIntent().getSerializableExtra(RestaurantResponse.RestaurantInfo.class.getName());
 		listview = new ObjectXListView(this);
 		listview.setDivider(new ColorDrawable(Color.DKGRAY));
 		listview.setDividerHeight(1);
@@ -61,10 +57,10 @@ public class StarDetailedActivity extends Activity {
 		}).setContentView(listview);
 		listview.setPullRefreshEnable(false);
 		listview.setPullLoadEnable(false);
-		listview.setAdapter(new ObjectXAdapter.PagesAdapter<StarRestaurant>() {
+		listview.setAdapter(new ObjectXAdapter.PagesAdapter<StarDetailed.StarData.StarRestaurant>() {
 
 			@Override
-			public View bindView(StarRestaurant star, int position, View view) {
+			public View bindView(StarDetailed.StarData.StarRestaurant star, int position, View view) {
 				LayoutInflater inflater = LayoutInflater.from(getApplication());
 				view = inflater.inflate(R.layout.star_restaurant_list_item_layout, null);
 				BitmapManager.init(StarDetailedActivity.this);
@@ -82,14 +78,14 @@ public class StarDetailedActivity extends Activity {
 			}
 
 			@Override
-			public List<StarRestaurant> instanceNewList(String json) throws Exception {
+			public List<StarDetailed.StarData.StarRestaurant> instanceNewList(String json) throws Exception {
 				Gson gson = new Gson();
 				starDtl = gson.fromJson(json, new TypeToken<StarDetailed>() {}.getType());
 				return starDtl.getData().getStar();
 			}
 
 			@Override
-			public void onLoadSuc(List<StarRestaurant> list) {
+			public void onLoadSuc(List<StarDetailed.StarData.StarRestaurant> list) {
 				super.onLoadSuc(list);
 				
 				BitmapManager.bindView((ImageView)listview.findViewById(R.id.celebrity_image), starDtl.getData().getBig_image());
@@ -99,9 +95,9 @@ public class StarDetailedActivity extends Activity {
 			}
 
 			@Override
-			public void onItemClick(StarRestaurant t, View view, int position, long id) {
+			public void onItemClick(StarDetailed.StarData.StarRestaurant t, View view, int position, long id) {
 				super.onItemClick(t, view, position, id);
-				RestaurantInnerActivity.start(StarDetailedActivity.this, new RestaurantInList(t.getRid()));
+				RestaurantInnerActivity.start(StarDetailedActivity.this, new RestaurantList.RestaurantInList(t.getRid()));
 			}
 		});
 		

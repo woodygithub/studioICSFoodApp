@@ -2,17 +2,15 @@ package com.org.icsfoodapp.model;
 
 import java.util.List;
 
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Commet;
-
 public class CommentData extends Response {
 
-	List<Commet> data;
+	List<RestaurantResponse.RestaurantInfo.Commet> data;
 
-	public List<Commet> getData() {
+	public List<RestaurantResponse.RestaurantInfo.Commet> getData() {
 		return data;
 	}
 
-	public void setData(List<Commet> data) {
+	public void setData(List<RestaurantResponse.RestaurantInfo.Commet> data) {
 		this.data = data;
 	}
 }

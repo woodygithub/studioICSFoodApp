@@ -79,6 +79,7 @@
     <orderEntry type="library" exported="" name="locSDK_3.1" level="project" />
     <orderEntry type="library" exported="" name="BaiduLBS_Android" level="project" />
     <orderEntry type="module" module-name="fax_utils" exported="" />
+    <orderEntry type="module" module-name="alipay_lib" exported="" />
   </component>
 </module>
 

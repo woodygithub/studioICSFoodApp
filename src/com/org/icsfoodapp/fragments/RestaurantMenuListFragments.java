@@ -5,13 +5,15 @@ import java.util.List;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import com.org.icsfoodapp.MyApp;
+import com.org.icsfoodapp.RestaurantMenuIneerActivity;
+import com.org.icsfoodapp.model.RestaurantMenu;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,12 +23,7 @@ import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.org.icsfoodapp.MainActivity;
-import com.org.icsfoodapp.MyApp;
 import com.org.icsfoodapp.R;
-import com.org.icsfoodapp.RestaurantMenuIneerActivity;
-import com.org.icsfoodapp.model.RestaurantMenu;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Activity;
 
 public class RestaurantMenuListFragments extends MenuLockFragment {
 	
@@ -61,9 +58,9 @@ public class RestaurantMenuListFragments extends MenuLockFragment {
 		listview.setPullLoadEnable(false);
 		listview.setPullRefreshWhitoutViewEnable(true);
 		listview.setPullLoadWhitoutViewEnable(true);
-		listview.setAdapter(new ObjectXAdapter.PagesAdapter<Activity>() {
+		listview.setAdapter(new ObjectXAdapter.PagesAdapter<RestaurantResponse.RestaurantInfo.Activity>() {
 			@Override
-			public View bindView(Activity activity, int position, View view) {
+			public View bindView(RestaurantResponse.RestaurantInfo.Activity activity, int position, View view) {
 				LayoutInflater inflater = LayoutInflater.from(getActivity().getApplication());
 				view = inflater.inflate(R.layout.fragment_menu_list_item, null);
 				BitmapManager.init(RestaurantMenuListFragments.this.getActivity());
@@ -81,7 +78,7 @@ public class RestaurantMenuListFragments extends MenuLockFragment {
 			}
 
 			@Override
-			public List<Activity> instanceNewList(String json)
+			public List<RestaurantResponse.RestaurantInfo.Activity> instanceNewList(String json)
 					throws Exception {
 				Gson gson = new Gson();
 				restaurantMenuList = gson.fromJson(json, new TypeToken<RestaurantMenu>() {}.getType());
@@ -89,7 +86,7 @@ public class RestaurantMenuListFragments extends MenuLockFragment {
 			}
 
 			@Override
-			public void onLoadSuc(List<Activity> allList) {
+			public void onLoadSuc(List<RestaurantResponse.RestaurantInfo.Activity> allList) {
 				super.onLoadFinish(allList);
 				View push = listview.findViewById(R.id.restaurant_menu_pushimage);
 				BitmapManager.bindView(push, restaurantMenuList.getData().getPush().get(0).getImage());
@@ -125,7 +122,7 @@ public class RestaurantMenuListFragments extends MenuLockFragment {
 				}
 			}
 			@Override
-			public void onItemClick(Activity t, View view, int position, long id) {
+			public void onItemClick(RestaurantResponse.RestaurantInfo.Activity t, View view, int position, long id) {
 				super.onItemClick(t, view, position, id);
 				startRestaurantMenuInner(t);
 			}
@@ -134,7 +131,7 @@ public class RestaurantMenuListFragments extends MenuLockFragment {
 		return topBarContain;
 	}
 
-	private void startRestaurantMenuInner(Activity data) {
+	private void startRestaurantMenuInner(RestaurantResponse.RestaurantInfo.Activity data) {
 		RestaurantMenuIneerActivity.start(RestaurantMenuListFragments.this, data);
 	}
 	

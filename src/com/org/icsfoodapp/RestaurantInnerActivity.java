@@ -6,24 +6,20 @@ import java.util.List;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import com.org.icsfoodapp.model.RestaurantList;
+import com.org.icsfoodapp.model.RestaurantResponse;
+import com.org.icsfoodapp.model.User;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -39,22 +35,15 @@ import android.widget.Toast;
 import com.fax.utils.bitmap.BitmapManager;
 import com.fax.utils.http.RequestFactory;
 import com.fax.utils.task.GsonAsyncTask;
-import com.fax.utils.view.ChildHScrollScrollView;
 import com.fax.utils.view.CircleProgressBarView;
 import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.fax.utils.view.pager.NetImgsViewPager;
 import com.fax.utils.view.pager.PointIndicator;
+
 import com.org.icsfoodapp.model.ImageModelImp;
 import com.org.icsfoodapp.model.Response;
-import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
-import com.org.icsfoodapp.model.RestaurantResponse;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Commet;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Dishes;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.HuanjingImage;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.TuijianImage;
-import com.org.icsfoodapp.model.User;
 import com.org.icsfoodapp.pickavator.WXShareUtils;
 import com.org.icsfoodapp.views.HorizontalListView;
 
@@ -72,26 +61,26 @@ public class RestaurantInnerActivity extends Activity {
 	ScrollView scrollView;
 	String[] tuijianArr;
 	LinearLayout commentLayout;
-	public static void start(Fragment fragment, RestaurantInList data) {
+	public static void start(Fragment fragment, RestaurantList.RestaurantInList data) {
 		start(fragment, data, null);
 	}
-	public static void start(Fragment fragment, RestaurantInList data, RestaurantResponse result) {
+	public static void start(Fragment fragment, RestaurantList.RestaurantInList data, RestaurantResponse result) {
 		fragment.startActivity(new Intent().setClass(fragment.getActivity(), RestaurantInnerActivity.class)
-			.putExtra(RestaurantInList.class.getName(),data)
+			.putExtra(RestaurantList.RestaurantInList.class.getName(),data)
 			.putExtra(RestaurantResponse.class.getName(), result));
 	}
-	public static void start(Activity activity, RestaurantInList data) {
+	public static void start(Activity activity, RestaurantList.RestaurantInList data) {
 		start(activity, data, null);
 	}
-	public static void start(Activity activity, RestaurantInList data,RestaurantResponse result) {
+	public static void start(Activity activity, RestaurantList.RestaurantInList data,RestaurantResponse result) {
 		activity.startActivity(new Intent().setClass(activity, RestaurantInnerActivity.class)
 			.putExtra(RestaurantResponse.class.getName(), result)
-			.putExtra(RestaurantInList.class.getName(),data));
+			.putExtra(RestaurantList.RestaurantInList.class.getName(),data));
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		RestaurantInList r = (RestaurantInList) getIntent().getSerializableExtra(RestaurantInList.class.getName());
+		RestaurantList.RestaurantInList r = (RestaurantList.RestaurantInList) getIntent().getSerializableExtra(RestaurantList.RestaurantInList.class.getName());
 		RestaurantResponse oldResult = (RestaurantResponse) getIntent().getSerializableExtra(RestaurantResponse.class.getName());
 		view =  getLayoutInflater().inflate(R.layout.restaurant_inner_layout, null, false);
 		if(oldResult!=null){
@@ -219,7 +208,7 @@ public class RestaurantInnerActivity extends Activity {
 				RestaurantActActivity.start(RestaurantInnerActivity.this, data.getActivity().get(position));
 			}
 		});
-		ArrayList<Commet> comments = data.getCommet();
+		ArrayList<RestaurantResponse.RestaurantInfo.Commet> comments = data.getCommet();
 		setListAdapter(listComment, comments);
 		topBarContain.setRightBtn(
 				result.getData().isStar()?R.drawable.topbar_ic_star_checked:R.drawable.topbar_ic_star_normal, 
@@ -266,7 +255,7 @@ public class RestaurantInnerActivity extends Activity {
 				if(convertView == null) convertView = View.inflate(getApplication(), R.layout.gallery_item_layout, null);
 				ImageModelImp imageModel = getItem(position);
 				((TextView) convertView.findViewById(R.id.gallerytext)).setText(imageModel.getName());
-				if(imageModel instanceof Dishes){
+				if(imageModel instanceof RestaurantResponse.RestaurantInfo.Dishes){
 					((TextView) convertView.findViewById(R.id.gallerytext)).setTextColor(Color.DKGRAY);
 				}
 				BitmapManager.bindView(convertView.findViewById(R.id.galleryimage), imageModel.getSmailImage());
@@ -289,7 +278,7 @@ public class RestaurantInnerActivity extends Activity {
 			}
 			
 		});
-		if (imageModels.size()>0&&imageModels.get(0) instanceof HuanjingImage) {
+		if (imageModels.size()>0&&imageModels.get(0) instanceof RestaurantResponse.RestaurantInfo.HuanjingImage) {
 			gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -303,10 +292,10 @@ public class RestaurantInnerActivity extends Activity {
 		}
 	}
 	
-	private void setViewPageAdapter(NetImgsViewPager viewPager,final ArrayList<TuijianImage> data){
+	private void setViewPageAdapter(NetImgsViewPager viewPager,final ArrayList<RestaurantResponse.RestaurantInfo.TuijianImage> data){
 		ArrayList<String> views = new ArrayList<String>();
 		for (int i = 0; i < data.size(); i++) {
-			final TuijianImage dishes = data.get(i);
+			final RestaurantResponse.RestaurantInfo.TuijianImage dishes = data.get(i);
 			views.add(dishes.getImage());
 			View item = View.inflate(getApplicationContext(), R.layout.gallery_item_layout, viewPager);
 		}
@@ -318,7 +307,7 @@ public class RestaurantInnerActivity extends Activity {
 					
 					@Override
 					public void onClick(View v) {
-						Dishes d =new Dishes();
+						RestaurantResponse.RestaurantInfo.Dishes d =new RestaurantResponse.RestaurantInfo.Dishes();
 						d.setId(data.get(position).getDid());
 						RestaurantMenuIneerActivity.start(RestaurantInnerActivity.this, d);
 					}
@@ -330,12 +319,12 @@ public class RestaurantInnerActivity extends Activity {
 		pointIndicator.bindViewPager(viewPager);
 	}
 	
-	private void setListAdapter(ObjectXListView listComment, final ArrayList<Commet> comments){
+	private void setListAdapter(ObjectXListView listComment, final ArrayList<RestaurantResponse.RestaurantInfo.Commet> comments){
 		listComment.setPullRefreshEnable(false);
 		listComment.setPullLoadEnable(false);
-		listComment.setAdapter(new ObjectXAdapter.SingleLocalPageAdapter<Commet>() {
+		listComment.setAdapter(new ObjectXAdapter.SingleLocalPageAdapter<RestaurantResponse.RestaurantInfo.Commet>() {
 			@Override
-			public View bindView(Commet commet, int position,View view) {
+			public View bindView(RestaurantResponse.RestaurantInfo.Commet commet, int position,View view) {
 				LayoutInflater inflater = LayoutInflater.from(getApplication());
 				view = inflater.inflate(R.layout.restaurant_comment_item_layout, null);
 				((TextView)view.findViewById(R.id.retaurant_comment_item_name)).setText(commet.getName());
@@ -347,7 +336,7 @@ public class RestaurantInnerActivity extends Activity {
 				return view;
 			}
 			@Override
-			public List<Commet> instanceNewList() throws Exception {
+			public List<RestaurantResponse.RestaurantInfo.Commet> instanceNewList() throws Exception {
 				return comments;
 			}
 		});

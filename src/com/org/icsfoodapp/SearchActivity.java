@@ -7,10 +7,10 @@ import com.fax.utils.view.TopBarContain;
 import com.fax.utils.view.list.ObjectXAdapter;
 import com.fax.utils.view.list.ObjectXListView;
 import com.google.gson.Gson;
+
 import com.org.icsfoodapp.model.RestaurantList;
 import com.org.icsfoodapp.model.RestaurantList.RestaurantInList;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;

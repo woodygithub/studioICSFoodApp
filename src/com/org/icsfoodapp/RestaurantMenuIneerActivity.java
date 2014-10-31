@@ -1,6 +1,5 @@
 package com.org.icsfoodapp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.methods.HttpRequestBase;
@@ -12,12 +11,11 @@ import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.TopBarContain;
 import com.org.icsfoodapp.model.ImageModelImp;
 import com.org.icsfoodapp.model.Response;
-import com.org.icsfoodapp.model.RestaurantAct;
 import com.org.icsfoodapp.model.RestaurantMenuDetailed;
+import com.org.icsfoodapp.model.RestaurantResponse;
 import com.org.icsfoodapp.model.User;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.Dishes;
-import com.org.icsfoodapp.model.RestaurantResponse.RestaurantInfo.HuanjingImage;
 import com.org.icsfoodapp.pickavator.WXShareUtils;
+
 import com.org.icsfoodapp.views.HorizontalListView;
 
 import android.app.Activity;
@@ -25,10 +23,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -134,7 +130,7 @@ public class RestaurantMenuIneerActivity extends Activity {
 				if(convertView == null) convertView = View.inflate(getApplication(), R.layout.gallery_item_layout, null);
 				ImageModelImp imageModel = getItem(position);
 				((TextView) convertView.findViewById(R.id.gallerytext)).setText(imageModel.getName());
-				if(imageModel instanceof Dishes){
+				if(imageModel instanceof RestaurantResponse.RestaurantInfo.Dishes){
 					((TextView) convertView.findViewById(R.id.gallerytext)).setTextColor(Color.DKGRAY);
 				}
 				BitmapManager.bindView(convertView.findViewById(R.id.galleryimage), imageModel.getSmailImage());
