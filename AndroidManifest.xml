@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.org.icsfoodapp"
     android:versionCode="5"
     android:versionName="1.2.4">
@@ -75,7 +76,7 @@
         <activity android:name=".SearchActivity" android:screenOrientation="portrait"/>
         <activity android:name=".StarDetailedActivity" android:screenOrientation="portrait"/>
         
-        <activity android:name=".RestaurantBigImageActivity" android:screenOrientation="portrait"/>
+        <!--activity android:name=".RestaurantBigImageActivity" android:screenOrientation="portrait"/-->
         
         <activity android:name=".pickavator.CommonChoosePicActivity"  android:theme="@style/FloatTheme"/>
         
